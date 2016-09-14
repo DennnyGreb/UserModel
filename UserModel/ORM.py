@@ -56,7 +56,7 @@ class Driver(object):
 			% (table_name, (', ').join(columns), self.tuple_transform(vals))
 			
 		#Use execute_query() method
-		self.execute_query(insert_query)
+		return insert_query
 
 	def select(self, table_name, columns):
 		"""Read the result of query"""
@@ -84,7 +84,6 @@ class Driver(object):
 		"""Delete selected records"""
 		delete_query = "DELETE FROM %s WHERE %s" % (table_name, condition)
 		self.execute_query(delete_query)		
-
 
 #if __name__ == '__main__':
 	

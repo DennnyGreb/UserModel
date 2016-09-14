@@ -3,6 +3,8 @@
 
 from flask import Flask
 
+import MySQLdb
+
 from ORM import Driver
 
 class UserModel(Driver):
@@ -15,7 +17,6 @@ class UserModel(Driver):
 		self.DB.connect("localhost", "denny", "isurrender", "local_db")
 
 	def create_user_table(self):
-
 		print('Creating Table')
 		self.connect_to_db()
 		self.DB.execute_query('DROP TABLE IF EXISTS Test')
@@ -25,15 +26,25 @@ class UserModel(Driver):
 		print "Inserting"
 		self.DB.insert(self.table_name, columns, vals)
 
+	def select_user(self, columns):
+		print "Reading"
+		self.DB.select(self.table_name, columns)
 
+	def update_user(self, changes, condition):
+		print "Updating"
+		self.DB.update(self.table_name, changes, condition)
+
+	def delete_user(self, condition):
+		print "Deleting"
+		self.DB.delete(self.table_name, condition)
 
 if __name__ == '__main__':
 	
 	User = UserModel()
 	
 	User.create_user_table()
-	User.insert_user(('fullName', 'email', 'password', 'avatar', 'isActive', 'role_id'), ('Denis', 'dendendengrebenets@gmail.com', 'srsrf', 'sfr', 1, 1))
-	
+
+	User.execute_query(User.insert(User.table_name, ('fullName', 'email', 'password', 'avatar', 'isActive', 'role_id'), ('Denis', 'dendendengrebenets@gmail.com', 'srsrf', 'sfr', 1, 1)))
 
 
 
