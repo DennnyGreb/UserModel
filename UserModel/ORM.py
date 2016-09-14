@@ -56,7 +56,7 @@ class Driver(object):
 			% (table_name, (', ').join(columns), self.tuple_transform(vals))
 			
 		#Use execute_query() method
-		return insert_query
+		self.execute_query(insert_query)
 
 	def select(self, table_name, columns):
 		"""Read the result of query"""
