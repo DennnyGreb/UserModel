@@ -2,9 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """Give posibility of CRUD queries within methods.
-
 Simple ORM, that gives posibility of using CRUD queries within python methods.
-
 """
 
 import MySQLdb
@@ -15,7 +13,7 @@ class Driver(object):
 
     Public methods: connect, close, execute_query, tuple_transform,
     insert, select, update, delete.
-
+    
     """
 
     def connect(self, host, user_name, password, db):
@@ -121,4 +119,4 @@ class Driver(object):
     # print('Deleting data')
     # tmpDB.delete('EMPLOYEE', 'AGE = 21')
 
-    # tmpDB.close()
+# tmpDB.close()

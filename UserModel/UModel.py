@@ -2,9 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """Describe model of user.
-
 Model of user, that gives posibility of using CRUD queries for user.
-
 """
 
 from ORM import Driver
@@ -16,7 +14,7 @@ class UserModel(Driver):
     UserModel extends Driver methods.
 
     Instance variables: table_name.
-
+    
     Public methods: connect_to_db, insert_user,
     select_user, update_user, delete_user.
 
@@ -75,4 +73,4 @@ if __name__ == '__main__':
 
     # User.delete_user('password = "hahaha"')
 
-    User.DB.close()
+User.DB.close()
